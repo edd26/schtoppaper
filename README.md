@@ -66,10 +66,10 @@ julia scripts/6cblcba7_Makie_plot_cluster_structure_individual_ppl_popularity_vb
 ```
 6. Figure 6:
 ```julia
-julia scripts/6cblcba7_Makie_plot_cluster_structure_individual_ppl_popularity_vbarcodes.jl -d COBRE --selected_dim 0 --popularity_limit 0 --max_dim 2
-julia scripts/6cblcba7_Makie_plot_cluster_structure_individual_ppl_popularity_vbarcodes.jl -d COBRE_rev --selected_dim 0 --popularity_limit 0 --max_dim 2
-julia scripts/6cblcba7_Makie_plot_cluster_structure_individual_ppl_popularity_vbarcodes.jl -d HCP --selected_dim 1 --popularity_limit 0 --max_dim 2
-julia scripts/6cblcba7_Makie_plot_cluster_structure_individual_ppl_popularity_vbarcodes.jl -d HCP_rev  --selected_dim 0 --popularity_limit 0 --max_dim 2
+julia scripts/6cb_get_cycles_posets.jl -d COBRE --selected_dim 0 --popularity_limit 0 --max_dim 2
+julia scripts/6cb_get_cycles_posets.jl -d COBRE_rev --selected_dim 0 --popularity_limit 0 --max_dim 2
+julia scripts/6cb_get_cycles_posets.jl -d HCP --selected_dim 1 --popularity_limit 0 --max_dim 2
+julia scripts/6cb_get_cycles_posets.jl -d HCP_rev  --selected_dim 0 --popularity_limit 0 --max_dim 2
 julia scripts/2j2_small_matrix_Betti_curves_investigation.jl --max_dim 2
 ```
 - please note that maximal dimension is limited to dimension 2; otherwise, significant resources (RAM memory, disk space) are required to compute results
@@ -78,7 +78,7 @@ presented in the paper (up to dimension 4)
 ```julia
 julia scripts/1k2_matrix_comparison_plts_with_symmetric.jl
 ```
-8. Figure 9:
+8. Figure 8:
 ```julia
 julia scripts/1gb3-2_plot_landcscape_evolution_resized_paper_submission.jl
 ```
