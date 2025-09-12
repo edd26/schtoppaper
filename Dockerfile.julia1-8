@@ -1,0 +1,40 @@
+# v0.1.1
+## ---- BUILDER ---
+FROM julia:1.8 AS builder
+
+RUN apt-get update && \
+    apt-get install --no-install-recommends -y unzip  && \
+    apt-get install --no-install-recommends -y build-essential && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists
+
+WORKDIR /app
+
+COPY ./Project.toml .
+COPY ./Manifest.toml .
+COPY  ./src/precompilation.jl .
+
+# Run the initialisation
+RUN julia precompilation.jl
+
+## ===-===-===-===-===-===-===-===-===-
+## --- PRODUCTION --- 
+FROM julia:1.8 AS production
+
+# Get compiled files 
+RUN mkdir /root/.julia
+COPY --from=builder /root/.julia /root/.julia
+
+# Set up working directory
+WORKDIR /app
+
+COPY --from=builder /app/*.toml /app/
+
+COPY ./scripts ./scripts
+COPY ./src ./src
+
+RUN mkdir /app/data && mkdir /app/data/exp_raw &&  mkdir /app/data/exp_pro && mkdir /app/data/exp_pro/inversed_matrices
+# TODO add volumes to data folders
+
+# CMD ["julia", "src/new_init.jl"]
+CMD ["/bin/bash"]
