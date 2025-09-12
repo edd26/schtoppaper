@@ -1,5 +1,16 @@
-# schtoppaper
+# Mesoscale differences in brain organization
 
+
+The code provided here reproduces the figures from the paper:
+
+* E. Dmitruk, Ch. Metzner, V. Steuber, S. N. Kadir: [Mesoscale differences in brain organization in schizophrenia revealed by topological data analysis](https://doi.org/10.1101/2025.06.19.660631) (p. 2025.06.19.660631v1). bioRxiv.
+
+## Introduction
+The code was written by Emil Dmitruk*, and the underlying ideas are the result of joint work with [Shabnam Kadir(*)](https://github.com/shabnamkadir),  Christoph Metzner and Volker Steuber(*).
+
+(*)[UHBiocomputation Group](http://biocomputation.herts.ac.uk/)
+
+## Code
 This code base is using the [Julia Language](https://julialang.org/) and
 [DrWatson](https://juliadynamics.github.io/DrWatson.jl/stable/)
 to make a reproducible scientific project named
