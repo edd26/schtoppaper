@@ -35,6 +35,7 @@ TopologyPreprocessing = "f84dc87b-1198-49da-97ab-02d881fe0800"
 
 [compat]
 DrWatson = "2.19.1"
+Eirene= "1.4.0"
 julia = "1.8.5"
 
 [sources.Eirene]
