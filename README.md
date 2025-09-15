@@ -40,6 +40,10 @@ using DrWatson
 ```
 which auto-activate the project and enable local path handling from DrWatson.
 
+## Data
+
+Processed data can be obtained from our [GIN repository](https://gin.g-node.org/dreamy1494/schtoppaper-data).
+
 # Reproducing results
 
 *Results were reproduced on MacOS (Intel, ARM), Linux. Windows system was not tested*
