@@ -1,0 +1,86 @@
+# Data key hc
+# Swap probability 
+## Dimension 0
+Total cycles: 622
+Mean popularity per cycle is	 13.157556270096464
+Median popularity per cycle is	 4.0
+
+Std popularity per cycle is	 20.182602777841396
+Max popularity per cycle is	 88
+Min popularity per cycle is	 1
+Popularity >=44 per cycle is	 60
+Popularity >=22 per cycle is	 115
+Popularity >2 per cycle is	 374
+Popularity ==2 per cycle is	 69
+Popularity ==1 per cycle is	 179
+Popularity >=22 per cycle divided by total cycles is	 0.18488745980707397
+
+Cycle size is 	1.9710610932475885 +/- 0.1677697778355882
+Nodes per cycle is 	1.9710610932475885 +/- 0.1677697778355882
+
+Mean cycle lifetime:	 Inf +/- NaN
+Mean cycle birth:	 0.0 +/- 0.0
+
+## Dimension 1
+Total cycles: 1625
+Mean popularity per cycle is	 3.344
+Median popularity per cycle is	 1.0
+
+Std popularity per cycle is	 8.460306624309792
+Max popularity per cycle is	 88
+Min popularity per cycle is	 1
+Popularity >=44 per cycle is	 21
+Popularity >=22 per cycle is	 55
+Popularity >2 per cycle is	 320
+Popularity ==2 per cycle is	 175
+Popularity ==1 per cycle is	 1130
+Popularity >=22 per cycle divided by total cycles is	 0.033846153846153845
+
+Cycle size is 	10.444923076923077 +/- 5.241420424241932
+Nodes per cycle is 	10.442461538461538 +/- 5.238456118793586
+
+Mean cycle lifetime:	 0.05859193029611421 +/- 0.04391347922234344
+Mean cycle birth:	 0.08816900232836092 +/- 0.05815298733150892
+
+## Dimension 2
+Total cycles: 1536
+Mean popularity per cycle is	 1.0904947916666667
+Median popularity per cycle is	 1.0
+
+Std popularity per cycle is	 0.6367779356938599
+Max popularity per cycle is	 11
+Min popularity per cycle is	 1
+Popularity >=44 per cycle is	 0
+Popularity >=22 per cycle is	 0
+Popularity >2 per cycle is	 26
+Popularity ==2 per cycle is	 31
+Popularity ==1 per cycle is	 1479
+Popularity >=22 per cycle divided by total cycles is	 0.0
+
+Cycle size is 	27.614583333333332 +/- 17.622236347806066
+Nodes per cycle is 	15.60546875 +/- 8.583254436298684
+
+Mean cycle lifetime:	 0.04845883101826575 +/- 0.04139344617835438
+Mean cycle birth:	 0.30311234127871023 +/- 0.12637169381390834
+
+## Dimension 3
+Total cycles: 202
+Mean popularity per cycle is	 1.004950495049505
+Median popularity per cycle is	 1.0
+
+Std popularity per cycle is	 0.07035975447302917
+Max popularity per cycle is	 2
+Min popularity per cycle is	 1
+Popularity >=44 per cycle is	 0
+Popularity >=22 per cycle is	 0
+Popularity >2 per cycle is	 0
+Popularity ==2 per cycle is	 1
+Popularity ==1 per cycle is	 201
+Popularity >=22 per cycle divided by total cycles is	 0.0
+
+Cycle size is 	38.92079207920792 +/- 21.556674425913023
+Nodes per cycle is 	12.930693069306932 +/- 3.7556125183399747
+
+Mean cycle lifetime:	 0.029760816191304898 +/- 0.027364877028436388
+Mean cycle birth:	 0.5596887096144995 +/- 0.16240719530292824
+
