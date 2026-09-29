@@ -174,15 +174,39 @@ hidespines!(ax_sch_notsig, :t, :r)
 hidespines!(ax_cent, :t, :r)
 hidespines!(ax_cent_norsig, :t, :r)
 
-ax_dict = Dict(
-    "hc" => ax_hc,
-    "sch" => ax_sch,
-)
+ax_dict = nothing
+ax_dict_no_difference  = nothing
+if data_set == "COBRE2-schaefer100"
+    ax_dict = Dict(
+        "COBRE2-hc-schf100" => ax_hc,
+        "COBRE2-sch-schf100" => ax_sch,
+    )
+    ax_dict_no_difference = Dict(
+        "COBRE2-hc-schf100" => ax_hc_notsig,
+        "COBRE2-sch-schf100" => ax_sch_notsig,
+    )
+elseif data_set == "COBRE2-AAL2"
+    ax_dict = Dict(
+        "COBRE2-hc-AAL2" => ax_hc,
+        "COBRE2-sch-AAL2" => ax_sch,
+    )
 
-ax_dict_no_difference = Dict(
-    "hc" => ax_hc_notsig,
-    "sch" => ax_sch_notsig,
-)
+    ax_dict_no_difference = Dict(
+        "COBRE2-hc-AAL2" => ax_hc_notsig,
+        "COBRE2-sch-AAL2" => ax_sch_notsig,
+    )
+
+else
+    ax_dict = Dict(
+        "hc" => ax_hc,
+        "sch" => ax_sch,
+    )
+
+    ax_dict_no_difference = Dict(
+        "hc" => ax_hc_notsig,
+        "sch" => ax_sch_notsig,
+    )
+end
 # ===-
 # Landscvapes and histograms
 
@@ -258,10 +282,20 @@ for (ax, clusters_selection) in zip([ax_cent, ax_cent_norsig], cycle_keys_vector
             # plot landsacpes
             CairoMakie.scatter!(ax, x_hat, y_hat, color=colors_subjects_with_names[selected_key])
         end
-        arrow_head_x = [x_hats["sch"][end] - x_hats["hc"][end]]
-        arrow_head_y = [y_hats["sch"][end] - y_hats["hc"][end]]
-        arrow_tail_x = [x_hats["hc"][end]]
-        arrow_tail_y = [y_hats["hc"][end]]
+
+
+        if occursin("hc", data_keys[1])
+            hc_key = data_keys[1]
+            sch_key = data_keys[2]
+        else
+            hc_key = data_keys[2]
+            sch_key = data_keys[1]
+        end
+
+        arrow_head_x = [x_hats[sch_key][end] - x_hats[hc_key][end]]
+        arrow_head_y = [y_hats[sch_key][end] - y_hats[hc_key][end]]
+        arrow_tail_x = [x_hats[hc_key][end]]
+        arrow_tail_y = [y_hats[hc_key][end]]
 
 
         selected_colour = nothing
