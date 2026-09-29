@@ -31,7 +31,7 @@ filter_out_infinite = true
 # Missing variables
 MIN_DIM, MAX_DIM = data_info[data_keys[1]] |> get_dims_range
 dim_range = MIN_DIM:MAX_DIM
-total_matrices = all_topo_features[data_keys[1]] |> length
+total_matrices = min([all_topo_features[k] |> length for k in data_keys]...)
 
 # ===-===-===-===-===-===-===-===-===-
 all_landscapes = populate_dict!(Dict(),
