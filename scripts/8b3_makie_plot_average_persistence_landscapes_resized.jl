@@ -57,7 +57,7 @@ function get_average_pland_plot(dim_range)
             axis_ylims = (low_y=0, high_y=0.08)
         end
 
-        for (row, selected_key) in ["hc", "sch"] |> enumerate
+        for (row, selected_key) in data_keys |> enumerate
             ax_land = CairoMakie.Axis(
                 fgl[row+row_for_label_shift, col+col_for_label_shift],
                 xtrimspine=true
@@ -114,7 +114,7 @@ function get_average_pland_plot(dim_range)
             ax_land_diff.leftspinevisible = false
         end
 
-        pl_diff = average_landscape["hc"][dim_index] - average_landscape["sch"][dim_index]
+        pl_diff = average_landscape[data_keys[1]][dim_index] - average_landscape[data_keys[2]][dim_index]
         plot_persistence_landscape!(ax_land_diff, pl_diff)
     end
 
@@ -128,13 +128,17 @@ f_dim2_dim3 = get_average_pland_plot(2:3)
 # Save plots
 script_prefix = "8b3"
 
+joined_keys = join(data_keys, "_")
 names_to_save = @dict normalisation_type
 savename_val = savename(names_to_save, allowedtypes=(DrWatson.default_allowed(names_to_save)..., NormalisationType))
 
 file_prefix = "$(script_prefix)_global_landscapes_with_difference_$(savename_val )"
 
 folder_name = @savename use_outer_layer_only
-pathargs = (folder_name,)
+pathargs = (
+    "joined_keys=$(joined_keys)",
+    folder_name,
+)
 
 safesave(plotsdir("section8", script_prefix * "_global_landscapes_with_difference", pathargs..., file_prefix * "_dim0_dim1" * ".pdf"), f_dim0_dim1)
 safesave(plotsdir("section8", script_prefix * "_global_landscapes_with_difference", pathargs..., file_prefix * "_dim2_dim3" * ".pdf"), f_dim2_dim3)
