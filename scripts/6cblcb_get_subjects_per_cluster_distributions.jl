@@ -237,20 +237,20 @@ if findmin([parse(Int, split(k, "clust")[2]) for (k, v) in distances_distributio
 end
 
 
-data_colours_bank = [
-    "hc" => CairoMakie.RGBf(0, 0, 1),
-    "sch" => CairoMakie.RGBf(255 / 255, 165 / 255, 0 / 255),
-    "HCP_1" => CairoMakie.RGBf(220 / 255, 10 / 255, 20 / 255),
-    "COBRE" => CairoMakie.RGBf(120 / 255, 100 / 255, 20 / 255),
-] |> OrderedDict
+data_colours_bank =
+    [
+        "hc" => RGBf(0, 0, 1),
+        "sch" => RGBf(255 / 255, 165 / 255, 0 / 255),
+        "HCP_1" => RGBf(220 / 255, 10 / 255, 20 / 255),
+        "COBRE" => RGBf(120 / 255, 100 / 255, 20 / 255),
+        "COBRE2-hc-AAL2" => RGBf(0.4, 0.4, 0.99),
+        "COBRE2-sch-AAL2" => RGBf(255 / 255, 195 / 255, 70 / 255),
+        "COBRE2-hc-schf100" => RGBf(0.3, 0.5, 0.99),
+        "COBRE2-sch-schf100" => RGBf(225 / 255, 215 / 255, 50 / 255),
+    ] |> OrderedDict
 
 function get_groups_colouring(data_keys, data_colours_bank)
-    mri_data_keys = [
-        "hc",
-        "sch",
-        "HCP_1",
-        "COBRE",
-    ]
+    mri_data_keys = ["hc", "sch", "HCP_1", "COBRE", "COBRE2-hc-AAL2", "COBRE2-sch-AAL2","COBRE2-hc-schf100", "COBRE2-sch-schf100"]
     other_colours_bank = [
         # CairoMakie.RGBf(0, 0, 1),
         # CairoMakie.RGBf(142 / 255, 65 / 255, 0 / 255),
