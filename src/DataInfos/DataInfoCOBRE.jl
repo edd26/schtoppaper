@@ -24,8 +24,7 @@ function get_COBRE_data_info(data_label; min_dim=0, max_dim=3, samples_limit=44)
         sym_matrix_source,
         topo_params,
         samples_limiter=samples_limit,
-        ordering_kwargs=(assign_same_values=true,
-            ordering_start=0),
+        ordering_kwargs=(assign_same_values=true, ordering_start=0),
         preprocessing_pipeline=Function[symmetrize_matrix, reverse_sign],
     )
 
@@ -44,6 +43,82 @@ function get_COBRE_data_info(data_label; min_dim=0, max_dim=3, samples_limit=44)
             ordering_start=0),
         preprocessing_pipeline=Function[symmetrize_matrix, reverse_sign],
     )
+    ## ===-===-===-===-===-===-===-===-===-===-===-===-===-===-
+    # COBRE-schaefer100
+    sym_matrix_source_schf100 = MatrixLoader(
+        # datadir("exp_raw", "COBRE-remake-Schaefer100"),
+        datadir("exp_raw", "connectome-export-COBRE", "hc"),
+        "schaefer-100_connectome_",
+        "csv",
+        samples_count = samples_limit,
+    )
+    topo_params =
+        TopoParams(min_dim = min_dim, max_dim = max_dim, features_list = features_list)
+    schf100_hc_config = DataInfo(
+        "COBRE2-hc-schf100",
+        sym_matrix_source_schf100,
+        topo_params,
+        samples_limiter = samples_limit,
+        ordering_kwargs = (assign_same_values = true, ordering_start = 0),
+        preprocessing_pipeline = Function[symmetrize_matrix, reverse_sign],
+    )
+    # ===-
+    sym_matrix_source_schf100 = MatrixLoader(
+        # datadir("exp_raw", "COBRE-remake-Schaefer100"),
+        datadir("exp_raw", "connectome-export-COBRE", "sch"),
+        "schaefer-100_connectome_",
+        "csv",
+        samples_count = samples_limit,
+    )
+    topo_params =
+        TopoParams(min_dim = min_dim, max_dim = max_dim, features_list = features_list)
+    schf100_sch_config = DataInfo(
+        "COBRE2-sch-schf100",
+        sym_matrix_source_schf100,
+        topo_params,
+        samples_limiter = samples_limit,
+        ordering_kwargs = (assign_same_values = true, ordering_start = 0),
+        preprocessing_pipeline = Function[symmetrize_matrix, reverse_sign],
+    )
+
+    ## ===-===-===-===-===-===-===-===-===-===-===-===-===-===-
+    # COBRE-AAL2
+    sym_matrix_source_aal2_v2 = MatrixLoader(
+        # datadir("exp_raw", "COBRE-remake-AAL2"),
+        datadir("exp_raw", "connectome-export-COBRE-AAL2", "hc"),
+        "AAL2_connectome_",
+        "csv",
+        samples_count = samples_limit,
+    )
+    topo_params =
+        TopoParams(min_dim = min_dim, max_dim = max_dim, features_list = features_list)
+    aal2_hc_config = DataInfo(
+        "COBRE2-hc-AAL2",
+        sym_matrix_source_aal2_v2,
+        topo_params,
+        samples_limiter = samples_limit,
+        ordering_kwargs = (assign_same_values = true, ordering_start = 0),
+        preprocessing_pipeline = Function[symmetrize_matrix, reverse_sign],
+    )
+    # ===-
+    sym_matrix_source_aal2_v2 = MatrixLoader(
+        # datadir("exp_raw", "COBRE-remake-AAL2"),
+        datadir("exp_raw", "connectome-export-COBRE-AAL2", "sch"),
+        "AAL2_connectome_",
+        "csv",
+        samples_count = samples_limit,
+    )
+    topo_params =
+        TopoParams(min_dim = min_dim, max_dim = max_dim, features_list = features_list)
+    aal2_sch_config = DataInfo(
+        "COBRE2-sch-AAL2",
+        sym_matrix_source_aal2_v2,
+        topo_params,
+        samples_limiter = samples_limit,
+        ordering_kwargs = (assign_same_values = true, ordering_start = 0),
+        preprocessing_pipeline = Function[symmetrize_matrix, reverse_sign],
+    )
+
 
     ## ===-===-===-
     # Test hc config
@@ -342,6 +417,10 @@ function get_COBRE_data_info(data_label; min_dim=0, max_dim=3, samples_limit=44)
         get_identifier(rev_sch_config) => rev_sch_config,
         get_identifier(patched_weak_hc_config) => patched_weak_hc_config,
         get_identifier(patched_weak_sch_config) => patched_weak_sch_config,
+        get_identifier(schf100_hc_config) => schf100_hc_config,
+        get_identifier(schf100_sch_config) => schf100_sch_config,
+        get_identifier(aal2_hc_config) => aal2_hc_config,
+        get_identifier(aal2_sch_config) => aal2_sch_config,
     )
 
     if data_label in keys(COBRE_data_info)
