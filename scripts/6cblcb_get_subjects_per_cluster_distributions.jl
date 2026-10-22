@@ -301,7 +301,8 @@ colours_info = Symbol[]
 
 # cl_id = 1
 # cluster_key = relevant_cluster_keys[5]
-cluster_key = relevant_cluster_keys[ordered_permutation][end-4]
+# # Debug leftover; fails with fewer than 5 significant clusters
+# cluster_key = relevant_cluster_keys[ordered_permutation][end-4]
 
 for (cl_id, cluster_key) in relevant_cluster_keys[ordered_permutation] |> enumerate
     cluster_number = parse(Int, split(cluster_key, "clust")[2])
